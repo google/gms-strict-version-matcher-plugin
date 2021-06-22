@@ -250,7 +250,7 @@ class DependencyTask extends DefaultTask {
                             .getLenientConfiguration()
                             .getFirstLevelModuleDependencies())
         } catch (ResolveException exception) {
-            logger.warn("Failed to resolve OSS licenses for $configuration.name.", exception)
+            logger.info("Failed to resolve OSS licenses for $configuration.name.", exception)
             return null
         }
     }
@@ -285,7 +285,7 @@ class DependencyTask extends DefaultTask {
                     resolvedArtifacts.addAll(resolvedDependency.getAllModuleArtifacts())
                 }
             } catch (AmbiguousVariantSelectionException exception) {
-                logger.warn("Failed to process $resolvedDependency.name", exception)
+                logger.info("Failed to process $resolvedDependency.name", exception)
             }
         }
         return resolvedArtifacts
